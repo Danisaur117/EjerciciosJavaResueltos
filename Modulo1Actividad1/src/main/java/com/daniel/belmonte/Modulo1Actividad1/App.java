@@ -3,6 +3,10 @@ package com.daniel.belmonte.Modulo1Actividad1;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * MÓDULO 1 - ACTIVIDAD 1
+ *
+ */
 public class App 
 {
     public static void main( String[] args )
