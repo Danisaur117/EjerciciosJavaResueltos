@@ -3,7 +3,7 @@
 - [x] Actividad 1
 - [x] Actividad 2
 - [x] Actividad 3
-- [ ] Actividad 4
+- [x] Actividad 4
 - [ ] Actividad 5
 - [ ] Actividad 6
 - [ ] Actividad 7
