@@ -19,7 +19,7 @@ public class App
 				System.out.println("Introduce la cantidad de KB: ");
 				cantidad = reader.readLine();
 			}
-			while(!cantidad.matches("^[1-9][0-9]*$"));
+			while(!cantidad.matches("^[-]?[1-9][0-9]*$"));
     	}catch(Exception ex) {
     		System.out.println(ex);
     	}

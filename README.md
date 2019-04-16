@@ -4,7 +4,7 @@
 - [x] Actividad 2
 - [x] Actividad 3
 - [x] Actividad 4
-- [ ] Actividad 5
+- [x] Actividad 5
 - [ ] Actividad 6
 - [ ] Actividad 7
 - [ ] Actividad 8
