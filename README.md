@@ -9,7 +9,7 @@
 - [x] Actividad 7
 - [x] Actividad 8
 - [x] Actividad 9
-- [ ] Actividad 10
+- [x] Actividad 10
 - [ ] Actividad 11
 - [ ] Actividad 12
 - [ ] Actividad 13
