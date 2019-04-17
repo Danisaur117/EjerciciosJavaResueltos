@@ -13,23 +13,42 @@ public class App
     {
     	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     	String leido = "";
+    	int valor = 0;
+    	
+    	try {
+			do {
+				System.out.println("¿De cuántos valores será la serie de Fibbonacci? -> ");
+				leido = reader.readLine();
+				
+				if(leido.matches("^[1-9][0-9]*$")) {
+					valor = Integer.valueOf(leido);
+				}
+				else
+					valor = 0;
+			}
+			while(!(valor > 1));
+    	}catch(Exception ex) {
+    		System.out.println(ex);
+    	}
+
+    	for(int j = 0; j < valor; j++) {
+    		System.out.println(getFibbonacci(j) + " ");
+    	}
     }
     
-    public static double getFibbonacci(int startPoint) {    	
-//    	if (n>1){
-//    	       return fibonacci(n-1) + fibonacci(n-2);  //función recursiva
-//    	    }
-//    	    else if (n==1) {  // caso base
-//    	        return 1;
-//    	    }
-//    	    else if (n==0){  // caso base
-//    	        return 0;
-//    	    }
-//    	    else{ //error
-//    	        System.out.println("Debes ingresar un tamaño mayor o igual a 1");
-//    	        return -1; 
-//    	    }
-    	
-    	return 0.0;
+    public static int getFibbonacci(int startPoint) {
+    	if(startPoint > 1) {
+    		return getFibbonacci(startPoint - 1) + getFibbonacci(startPoint - 2);
+    	}
+    	else if (startPoint == 1) {
+    		return 1;
+    	}
+    	else if (startPoint == 0) {
+    		return 0;
+    	}
+    	else {
+    		System.out.println("ERROR EN LA FUNCIÓN RECURSIVA. VALOR INTRODUCIDO: " + startPoint);
+    		return -1;
+    	}    	
     }
 }
