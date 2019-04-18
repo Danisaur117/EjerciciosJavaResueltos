@@ -51,4 +51,8 @@ public class ListaNumeros {
 		
 		return false;
 	}
+	
+	public int getSize() {
+		return this.lista.size();
+	}
 }

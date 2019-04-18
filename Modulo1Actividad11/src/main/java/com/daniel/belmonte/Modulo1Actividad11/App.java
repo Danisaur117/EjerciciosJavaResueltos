@@ -21,12 +21,12 @@ public class App
     	
     	try {
 			do {
-				System.out.println("Introduce un valor entero, otros valores se ignorarán" +
-								   " | Pulsa 's' para salir): ");
+				System.out.println("Introduce un número (pulsa 's' para salir): ");
 				leido = reader.readLine();
 				
-				//CORREGIR PARA LEER A TRAVES DE LNUM
-				//if(leido.matches("^[-]?[1-9][0-9]*$")) lista.add(Integer.valueOf(leido));
+				if(leido.matches("^[-]?[0-9]+((\\.)\\d{0,10})?$")) {
+					lNum.addValor(Double.parseDouble(leido));
+				}
 				
 				if (leido.matches("^[s]$")) salir = true;
 			}
@@ -34,5 +34,9 @@ public class App
     	}catch(Exception ex) {
     		System.out.println(ex);
     	}
+    	
+    	System.out.println("Has introducido " + lNum.getSize() + " números");
+    	System.out.println("Has introducido " + lNum.getPositivos() + " positivos");
+    	System.out.println("Has introducido " + lNum.getNegativos() + " negativos");
     }
 }
