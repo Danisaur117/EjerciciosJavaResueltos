@@ -11,7 +11,7 @@
 - [x] Actividad 9
 - [x] Actividad 10
 - [x] Actividad 11
-- [ ] Actividad 12
+- [x] Actividad 12
 - [ ] Actividad 13
 - [ ] Actividad 14
 
