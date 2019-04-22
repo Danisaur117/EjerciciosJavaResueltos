@@ -13,7 +13,7 @@
 - [x] Actividad 11
 - [x] Actividad 12
 - [x] Actividad 13
-- [ ] Actividad 14
+- [x] Actividad 14
 
 
 ## MÓDULO 2
