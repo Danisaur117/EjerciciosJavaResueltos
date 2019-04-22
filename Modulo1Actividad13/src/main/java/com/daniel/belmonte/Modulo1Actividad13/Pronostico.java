@@ -5,7 +5,6 @@ public class Pronostico {
 	private String[] pronostico;
 	
 	public Pronostico() {
-		partido = "";
 		pronostico = new String[3];
 	}
 	
@@ -14,7 +13,7 @@ public class Pronostico {
 	}
 	
 	public String getPronostico(int i) {
-		if(i < 3) return pronostico[i];
+		if((i >= 0) && (i < 3)) return pronostico[i];
 		
 		return "";
 	}
