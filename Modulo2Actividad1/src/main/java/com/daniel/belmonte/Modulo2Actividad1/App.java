@@ -21,6 +21,7 @@ public class App
     	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     	String leido = "";
     	String cadena = "";
+    	String pos = "";
     	BinaryArray bArray = null;
     	
     	try {
@@ -57,6 +58,35 @@ public class App
 	    				break;
 	    			}
 	    			case '3':{
+	    				if(bArray == null) {
+	    					System.out.println("Aún no has introducido ninguna matriz");
+		    				break;
+	    				}
+	    				
+	    				do {
+	    					System.out.println("Introduce un valor (F ó T):");
+		    				cadena = reader.readLine();
+	    				}
+	    				while(!cadena.matches("^[FT]$"));
+	    				
+	    				do {
+	    					System.out.println("Introduce la posición (de 1 a " +
+	    										(bArray.getArr().length) + "):");
+		    				pos = reader.readLine();
+	    				}
+	    				while(!pos.matches("^[1-9]+$"));
+	    				
+	    				if(bArray.setValueChar(cadena.charAt(0), Integer.valueOf(pos))) {
+	    					System.out.println("Valor modificado correctamente");
+	    				}
+	    				else {
+	    					System.out.println("La posición indicada no es válida");
+	    				}
+	    				
+	    				for(int i = 0; i < bArray.getArr().length; i++) {
+	    					System.out.print(bArray.getValue(i).toString() + " ");
+	    				}
+	    				
 	    				break;
 	    			}
 	    			case '4':{
@@ -64,6 +94,21 @@ public class App
 	    					System.out.println("Aún no has introducido ninguna matriz");	    				
 		    				break;
 	    				}
+	    				
+	    				do {
+	    					System.out.println("Introduce la posición (de 1 a " +
+	    										(bArray.getArr().length) + "):");
+		    				pos = reader.readLine();
+	    				}
+	    				while(!pos.matches("^[1-9]+$"));
+	    				
+	    				if(bArray.getValue(Integer.valueOf(pos)) == null) {
+	    					System.out.println("La posición indicada no es válida");
+	    					break;
+	    				}
+	    				
+	    				System.out.println("La posición " + pos + " contiene el valor " +
+	    									bArray.getValue(Integer.valueOf(pos)));
 	    				
 	    				break;
 	    			}

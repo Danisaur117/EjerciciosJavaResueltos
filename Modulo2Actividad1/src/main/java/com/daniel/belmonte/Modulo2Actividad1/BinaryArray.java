@@ -105,13 +105,13 @@ public class BinaryArray {
 		if(index >= this.arr.length) return false;
 		
 		if(value == 'T') {
-			this.arr[index] = true;
+			this.arr[index - 1] = true;
 			this.checkHasNulls();
 			return true;
 		}
 		
 		if(value == 'F') {
-			this.arr[index] = false;
+			this.arr[index - 1] = false;
 			this.checkHasNulls();
 			return true;
 		}
@@ -132,11 +132,11 @@ public class BinaryArray {
 		if(index >= this.arr.length) return false;
 		
 		if(value) {
-			this.arr[index] = true;
+			this.arr[index - 1] = true;
 			this.checkHasNulls();
 			return true;
 		}else{
-			this.arr[index] = false;
+			this.arr[index - 1] = false;
 			this.checkHasNulls();
 			return true;
 		}
