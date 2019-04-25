@@ -1,5 +1,8 @@
 package com.daniel.belmonte.Modulo2Actividad1;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * MÓDULO 2 - ACTIVIDAD 1
  * 
@@ -15,6 +18,88 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    	String leido = "";
+    	String cadena = "";
+    	BinaryArray bArray = null;
+    	
+    	try {
+    		do {
+    			cadena = "";
+	    		showMenu();
+	    		leido = reader.readLine();
+
+	    		switch(leido.charAt(0)) {
+	    			case '1':{
+	    				System.out.println("Introduce una cadena con valores F y T:");
+	    				cadena = reader.readLine();
+	    				
+	    				bArray = new BinaryArray(cadena);
+	    				System.out.println("Se ha almacenado la cadena correctamente");
+	    				
+	    				for(int i = 0; i < bArray.getArr().length; i++) {
+	    					System.out.print(bArray.getValue(i).toString() + " ");
+	    				}
+	    				
+	    				break;
+	    			}
+	    			case '2':{
+	    				if(bArray == null) {
+	    					System.out.println("Aún no has introducido ninguna matriz");
+		    				break;
+	    				}
+		    			
+	    				System.out.println("La matriz que hay almacenada es la siguiente:");
+	    				for(int i = 0; i < bArray.getArr().length; i++) {
+		    				System.out.print(bArray.getValue(i).toString() + " ");
+		    			}
+
+	    				break;
+	    			}
+	    			case '3':{
+	    				break;
+	    			}
+	    			case '4':{
+	    				if(bArray == null) {
+	    					System.out.println("Aún no has introducido ninguna matriz");	    				
+		    				break;
+	    				}
+	    				
+	    				break;
+	    			}
+	    			case '5':{
+	    				System.out.println("GRACIAS POR USAR BINARYARRAY. SALIENDO DEL PROGRAMA...");
+	    				break;
+	    			}
+	    			default:{
+	    				System.out.println("ERROR INESPERADO");
+	    				break;
+	    			}
+	    		}
+	    		
+	    		System.out.println();
+	    		System.out.println("Pulsa [INTRO] para continuar");
+				cadena = reader.readLine();
+    		}
+    		while(!leido.matches("^[5]$")); //Mostramos el menú mientras no se pulse el 5 
+    	}
+    	catch(Exception ex) {
+    		System.out.println(ex);
+    	}
+    }
+    
+    public static void showMenu() {
+    	System.out.println("**************************");
+    	System.out.println("*** BINARYARRAY - MENU ***");
+    	System.out.println("**************************");
+    	System.out.println();
+    	System.out.println("-> ¿QUÉ DESEAS HACER?");
+    	System.out.println();
+    	System.out.println("1.- Establecer matriz");
+    	System.out.println("2.- Mostrar matriz");
+    	System.out.println("3.- Establecer valor en posición");
+    	System.out.println("4.- Mostrar valor de posición");
+    	System.out.println("5.- Salir");
+    	System.out.println();
     }
 }
