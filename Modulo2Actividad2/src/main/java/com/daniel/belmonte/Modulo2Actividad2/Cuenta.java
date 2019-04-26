@@ -1,20 +1,23 @@
 package com.daniel.belmonte.Modulo2Actividad2;
 
+import java.text.DecimalFormat;
+
 public class Cuenta {
 	protected double saldo;
+	DecimalFormat df;
 	
 	public Cuenta() {
 		saldo = 0.0;
+		df = new DecimalFormat("0.00");
 	}
 	
 	//public void setSaldo(double saldo)
 	public void deposit(double saldo) {
-		this.saldo = saldo;
+		this.saldo += saldo;
 	}
 	
-	//TERMINAR IMPLEMENTACION
-	public boolean withdraw(double saldo) {
-		return false;
+	public void withdraw(double saldo) {
+		this.saldo -= saldo;
 	}
 	
 	//public double getSaldo()
@@ -23,6 +26,6 @@ public class Cuenta {
 	}
 	
 	public String toString() {
-		return Double.toString(saldo);
+		return df.format(saldo);
 	}
 }
