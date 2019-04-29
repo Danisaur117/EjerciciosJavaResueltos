@@ -40,15 +40,44 @@ public class Polynomial {
 		//Reservamos memoria para el array de coeficientes
 		this.coeff = new int[degree + 1];
 		
+		//Identificamos los coeficientes del polinomio
+		if(degree == 0) {
+			this.coeff[0] = 0;
+		}
+		else {
+			index2 = -1;
+			for(int i = 0; i < (degree + 1); i++) {
+				index2 = poly.indexOf("x", index2 + 1);
+
+				if(index2 == 0) {
+					this.coeff[i] = 1;
+				}
+				else {
+					
+				}
+			}
+		}
 		
-		
-//		String[] splitPoly = poly.split("[+-]");
-//		System.out.println(splitPoly);
-//		System.out.println("Length: " + splitPoly.length);
-//		for(int i = 0; i < splitPoly.length; i++) {
-//			System.out.println(splitPoly[i]);
+		/***********/
+//		index2 = -1;
+//		int i = 0;
+//		while((index2 = poly.indexOf("x", index2 + 1)) != -1) {
+//			if(String.valueOf(poly.charAt(index2 - 1)).matches("[+-]")) {
+//				this.coeff[i] = 1;
+//			}
+//			else {
+//				try {
+//					this.coeff[i] = Integer.valueOf(String.valueOf(poly.charAt(index2 - 1)));
+//				}
+//				catch(Exception ex) {
+//					System.out.println(ex);
+//				}
+//			}
+//			
+//			i++;
 //		}
-		/***********************/
+			
+		/*********************/
 //		int index1 = poly.indexOf("^");
 //		int index2 = poly.indexOf("x");
 //		

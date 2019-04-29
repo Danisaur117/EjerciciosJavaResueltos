@@ -35,7 +35,7 @@ public class App
         }
         System.out.println();
         
-        int[] newCoeff = {1, 3, 2, 8, 0, 1, -4};
+        int[] newCoeff = {1, 3, 8, 0, 1, -4};
         poly.setDegree(5);
         poly.setCoeff(newCoeff);
         Polynomial poly2 = new Polynomial(poly);
