@@ -24,6 +24,47 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Polynomial poly = new Polynomial();
+        int[] coeff;
+        System.out.println("Polinomio creado por constructor por defecto: ");
+        System.out.println(" -> Grado: " + poly.getDegree());
+        System.out.print(" -> Coeficientes: ");
+        coeff = poly.getCoeff();
+        for(int i = 0; i < coeff.length; i++) {
+        	System.out.print(coeff[i] + " ");
+        }
+        System.out.println();
+        
+        int[] newCoeff = {1, 3, 2, 8, 0, 1, -4};
+        poly.setDegree(5);
+        poly.setCoeff(newCoeff);
+        Polynomial poly2 = new Polynomial(poly);
+        System.out.println("Polinomio creado por constructor de copia: ");
+        System.out.println(" -> Grado: " + poly2.getDegree());
+        System.out.print(" -> Coeficientes: ");
+        coeff = poly2.getCoeff();
+        for(int i = 0; i < coeff.length; i++) {
+        	System.out.print(coeff[i] + " ");
+        }
+        System.out.println();
+        
+        String strPoly = "-x^3+4x^2-3x+1";
+//        String strPoly = "-x^3+4x^2-3x+1";
+//        String strPoly = "-4x^2-3x+1";
+//        String strPoly = "4x^2-3x+1";
+//        String strPoly = "-3x+1";
+//        String strPoly = "3x+1";
+//        String strPoly = "-1";
+//        String strPoly = "3";
+//        String strPoly = "0";
+        Polynomial poly3 = new Polynomial(strPoly);
+        System.out.println("Polinomio creado por constructor a partir de String: " + strPoly);
+        System.out.println(" -> Grado: " + poly3.getDegree());
+        System.out.print(" -> Coeficientes: ");
+        coeff = poly3.getCoeff();
+        for(int i = 0; i < coeff.length; i++) {
+        	System.out.print(coeff[i] + " ");
+        }
+        System.out.println();
     }
 }
