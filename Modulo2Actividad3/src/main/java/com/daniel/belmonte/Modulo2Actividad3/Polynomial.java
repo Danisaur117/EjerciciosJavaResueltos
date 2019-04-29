@@ -19,7 +19,9 @@ public class Polynomial {
 		}
 	}
 	
-	public Polynomial(String poly) {
+	/* CONSTRUCTOR PENDIENTE DE IMPLEMENTAR */
+	@Deprecated
+	public Polynomial(String poly) {		
 		//Crea un polinomio basado en una especificación String
 		int index1 = poly.indexOf("^");
 		int index2 = poly.indexOf("x");
@@ -53,86 +55,12 @@ public class Polynomial {
 					this.coeff[i] = 1;
 				}
 				else {
-					
+					if(poly.charAt(index2 - 1) == '-') {
+						this.coeff[i] = -this.coeff[i]; 
+					}
 				}
 			}
 		}
-		
-		/***********/
-//		index2 = -1;
-//		int i = 0;
-//		while((index2 = poly.indexOf("x", index2 + 1)) != -1) {
-//			if(String.valueOf(poly.charAt(index2 - 1)).matches("[+-]")) {
-//				this.coeff[i] = 1;
-//			}
-//			else {
-//				try {
-//					this.coeff[i] = Integer.valueOf(String.valueOf(poly.charAt(index2 - 1)));
-//				}
-//				catch(Exception ex) {
-//					System.out.println(ex);
-//				}
-//			}
-//			
-//			i++;
-//		}
-			
-		/*********************/
-//		int index1 = poly.indexOf("^");
-//		int index2 = poly.indexOf("x");
-//		
-//		if(index1 != -1) {
-//			degree = Integer.valueOf(String.valueOf(poly.charAt(index1 + 1)));	//El grado está tras el primer caracter ^
-//			this.coeff = new int[degree + 1];
-//			for(int i = 0; i < (degree + 1); i++) {
-//				if(index2 == -1) {
-//					if(poly.charAt(degree) == 'x') {
-//						this.coeff[i] = 0;
-//					}
-//					else {
-//						this.coeff[i] = Integer.valueOf(String.valueOf(poly.charAt(poly.length() - 1)));
-//					}
-//				}
-//				else {
-//					try {
-//						this.coeff[i] = Integer.valueOf(String.valueOf(poly.charAt(index2 - 1)));
-//					}
-//					catch(Exception ex) {
-//						System.out.println(ex);
-//					}
-//				}
-//				
-//				index2 = poly.indexOf("x", index2 + 1);
-//			}
-//		}
-//		else {
-//			if(index2 != -1) {
-//				degree = 1;	//El grado es 1
-//				this.coeff = new int[2];
-//				try {
-//					if(poly.charAt(0) != '-') {
-//						this.coeff[0] = Integer.valueOf(String.valueOf(poly.charAt(0)));
-//					}
-//					else {
-//						this.coeff[0] = Integer.valueOf(String.valueOf(poly.charAt(degree)));
-//					}
-//					this.coeff[1] = Integer.valueOf(String.valueOf((poly.charAt(poly.length() - 1))));
-//				}
-//				catch(Exception ex) {
-//					System.out.println(ex);
-//				}
-//			}
-//			else {
-//				degree = 0;	//El grado es 0
-//				this.coeff = new int[1];
-//				try {
-//					this.coeff[0] = Integer.valueOf(poly);
-//				}
-//				catch(Exception ex) {
-//					System.out.println(ex);
-//				}
-//			}
-//		}
 	}
 	
 	public int getDegree() {
@@ -152,5 +80,81 @@ public class Polynomial {
 		for(int i = 0; i < coeff.length; i++) {
 			this.coeff[i] = coeff[i];
 		}
+	}
+	
+	public Polynomial negate(Polynomial poly) {
+		Polynomial negPoly = new Polynomial(poly);
+		int[] negCoeff = negPoly.getCoeff();
+		
+		//Recorremos los coeficientes cambiándoles el signo
+		for(int i = 0; i < negCoeff.length; i++) {
+			negCoeff[i] = -negCoeff[i]; 
+		}
+		
+		//Guardamos los coeficientes negados en el polinomio resultado
+		negPoly.setCoeff(negCoeff);
+		
+		return negPoly;
+	}
+	
+	public Polynomial add(Polynomial poly) {
+		Polynomial resPoly;
+		int maxDegree = Math.max(this.degree, poly.getDegree());
+		int[] resCoeff;
+		
+		if(maxDegree == this.degree) {
+			resPoly = new Polynomial(this);
+			resCoeff = this.coeff;
+			int[] polyCoeff = poly.getCoeff();
+			
+			for(int i = 0; i <= poly.getDegree(); i++) {
+				resCoeff[i] += polyCoeff[i];
+			}
+		}
+		else {
+			resPoly = new Polynomial(poly);
+			resCoeff = poly.getCoeff();
+			
+			for(int i = 0; i <= this.degree; i++) {
+				resCoeff[i] += this.coeff[i];
+			}
+		}
+				
+		resPoly.setCoeff(resCoeff);
+		resPoly.setDegree(resCoeff.length - 1);
+		
+		return resPoly;
+	}
+	
+	public Polynomial substract(Polynomial poly) {
+		Polynomial resPoly;
+		int maxDegree = Math.max(this.degree, poly.getDegree());
+		int[] resCoeff;
+		
+		if(maxDegree == this.degree) {
+			resPoly = new Polynomial(this);
+			resCoeff = this.coeff;
+			int[] polyCoeff = poly.getCoeff();
+			
+			for(int i = (maxDegree - poly.getDegree()); i <= maxDegree; i++) {
+				resCoeff[i] -= polyCoeff[i - 1];
+			}
+		}
+		else {
+			resPoly = poly.negate(poly);
+			resCoeff = poly.getCoeff();
+			
+			System.out.println("Empezando en... " + (maxDegree - this.degree));
+			System.out.println("Acabando en... " + poly.getDegree());
+			
+			for(int i = (maxDegree - this.degree); i <= maxDegree; i++) {
+				resCoeff[i] += this.coeff[i - 1];
+			}
+		}
+				
+		resPoly.setCoeff(resCoeff);
+		resPoly.setDegree(resCoeff.length - 1);
+		
+		return resPoly;
 	}
 }
