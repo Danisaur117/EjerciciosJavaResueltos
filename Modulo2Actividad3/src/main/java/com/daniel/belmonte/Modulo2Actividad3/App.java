@@ -9,7 +9,7 @@ package com.daniel.belmonte.Modulo2Actividad3;
  *    polinomio sea cero, un constructor que crea una copia independiente separada de un polinomio
  *    existente y un constructor que crea un polinomio basado en una especificación String
  *  [x] Crea el metodo negate que devuelve el negado del polinomio que se proporciona como parámetro
- *  - Crea los métodos add, substract y multiply que devuelven un nuevo poliniomio que es igual a
+ *  [x] Crea los métodos add, substract y multiply que devuelven un nuevo poliniomio que es igual a
  *    la suma, diferencia o producto, respectivamente, de este polinomio y de otro polinomio, rhs.
  *    Ninguno de estos métodos modifican ninguno de los polinimios originales
  *  - equals y toString, el primero comprueba que el polinomio pasado por parámetro es el creado y
@@ -133,25 +133,61 @@ public class App
 //        System.out.println();
 //        System.out.println();
     	
+//    	Polynomial poly1 = new Polynomial();
+//    	int[] coeff1 = {1, 0, -2, 4};
+//    	poly1.setCoeff(coeff1);
+//      poly1.setDegree(coeff1.length - 1);
+//      
+//      Polynomial poly2 = new Polynomial();
+//      int[] coeff2 = {1, 0, -1};
+//      poly2.setCoeff(coeff2);
+//      poly2.setDegree(coeff2.length - 1);
+//      
+//      Polynomial polyRes1 = poly1.multiply(poly2);
+//      System.out.println("Polinomio multiplicación (poly1 * poly2): ");
+//      System.out.println(" -> Grado: " + polyRes1.getDegree());
+//      System.out.print(" -> Coeficientes: ");
+//      int[] coeffRes1 = polyRes1.getCoeff();
+//      for(int i = 0; i < coeffRes1.length; i++) {
+//      	System.out.print(coeffRes1[i] + " ");
+//      }
+//      System.out.println();
+//      System.out.println();
+    	
     	Polynomial poly1 = new Polynomial();
-      int[] coeff1 = {1, 0, -2, 4};
-      poly1.setCoeff(coeff1);
-      poly1.setDegree(coeff1.length - 1);
-      
-      Polynomial poly2 = new Polynomial();
-      int[] coeff2 = {1, 0, -1};
-      poly2.setCoeff(coeff2);
-      poly2.setDegree(coeff2.length - 1);
-      
-      Polynomial polyRes1 = poly1.multiply(poly2);
-      System.out.println("Polinomio multiplicación (poly1 * poly2): ");
-      System.out.println(" -> Grado: " + polyRes1.getDegree());
-      System.out.print(" -> Coeficientes: ");
-      int[] coeffRes1 = polyRes1.getCoeff();
-      for(int i = 0; i < coeffRes1.length; i++) {
-      	System.out.print(coeffRes1[i] + " ");
-      }
-      System.out.println();
-      System.out.println();
+    	int[] coeff1 = {1, 0, -2, 4};
+    	poly1.setCoeff(coeff1);
+    	poly1.setDegree(coeff1.length - 1);
+    	
+    	Polynomial poly2 = new Polynomial(poly1);
+    	
+    	Polynomial poly3 = new Polynomial();
+    	int[] coeff3 = {1, 0, -2, 4};
+    	poly3.setCoeff(coeff3);
+    	poly3.setDegree(coeff3.length - 1);
+    	
+    	Polynomial poly4 = new Polynomial(poly1);
+    	poly4.setDegree(8);
+    	
+    	if(poly1.equals(poly2)) {
+    		System.out.println("poly1 y poly2 son IGUALES");
+    	}
+    	else {
+    		System.out.println("poly1 y poly2 son DISTINTOS");
+    	}
+    	
+    	if(poly1.equals(poly3)) {
+    		System.out.println("poly1 y poly3 son IGUALES");
+    	}
+    	else {
+    		System.out.println("poly1 y poly3 son DISTINTOS");
+    	}
+    	
+    	if(poly1.equals(poly4)) {
+    		System.out.println("poly1 y poly4 son IGUALES");
+    	}
+    	else {
+    		System.out.println("poly1 y poly4 son DISTINTOS");
+    	}
     }
 }

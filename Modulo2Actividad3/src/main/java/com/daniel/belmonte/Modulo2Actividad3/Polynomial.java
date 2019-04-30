@@ -206,4 +206,21 @@ public class Polynomial {
 
 		return resPoly;
 	}
+	
+	public boolean equals(Polynomial poly) {
+		if(this.degree != poly.getDegree()) {
+			return false;
+		}
+		else {
+			int[] coeff = poly.getCoeff();
+			
+			for(int i = 0; i < this.degree; i++) {
+				if(this.coeff[i] != coeff[i]) {
+					return false;
+				}
+			}
+			
+			return true;
+		}
+	}
 }
