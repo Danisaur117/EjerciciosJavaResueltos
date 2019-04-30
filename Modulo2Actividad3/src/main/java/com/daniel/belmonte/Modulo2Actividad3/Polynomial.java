@@ -102,9 +102,10 @@ public class Polynomial {
 		int maxDegree = Math.max(this.degree, poly.getDegree());
 		int[] resCoeff;
 		
-		System.out.println("Grado this: " + this.degree);
-		System.out.println("Grado poly: " + poly.getDegree());
-		
+		//Si ambos polinomios tienen el mismo grado, sumamos uno a uno los coeficientes. Si no,
+		//deberemos determinar cuál de los 2 es el polinomio de mayor grado para utilizarlo como
+		//referencia, y deberemos empezar a sumar por la posición resultante de la diferencia de
+		//grados para que la suma de coeficientes sea correcta
 		if(this.degree == poly.getDegree()) {
 			resPoly = new Polynomial(this);
 			resCoeff = this.coeff;
@@ -134,6 +135,7 @@ public class Polynomial {
 			}
 		}
 				
+		//Almacenaremos y devolveremos en resPoly el objeto Polynomial resultado de la suma
 		resPoly.setCoeff(resCoeff);
 		resPoly.setDegree(resCoeff.length - 1);
 		
@@ -145,6 +147,11 @@ public class Polynomial {
 		int maxDegree = Math.max(this.degree, poly.getDegree());
 		int[] resCoeff;
 		
+		//Si ambos polinomios tienen el mismo grado, restamos uno a uno los coeficientes. Si no,
+		//deberemos determinar cuál de los 2 es el polinomio de mayor grado para utilizarlo como
+		//referencia sin variar el orden de los operadores. Además, deberemos empezar a restar por
+		//la posición resultante de la diferencia de grados para que la resta de coeficientes sea
+		//correcta
 		if(this.degree == poly.getDegree()) {
 			resPoly = new Polynomial(this);
 			resCoeff = this.coeff;
@@ -173,7 +180,8 @@ public class Polynomial {
 				}
 			}
 		}
-				
+		
+		//Almacenaremos y devolveremos en resPoly el objeto Polynomial resultado de la resta
 		resPoly.setCoeff(resCoeff);
 		resPoly.setDegree(resCoeff.length - 1);
 		
@@ -181,6 +189,21 @@ public class Polynomial {
 	}
 	
 	public Polynomial multiply(Polynomial poly) {
-		return null;
+		int[] polyCoeff = poly.getCoeff();
+		Polynomial resPoly = new Polynomial();
+		int degree = this.degree + poly.getDegree();
+		int[] resCoeff = new int[degree + 1];
+		
+		for(int i = 0; i <= this.degree ; i++) {
+			for(int j = 0; j <= poly.getDegree() ; j++) {
+				resCoeff[i + j] += this.coeff[i] * polyCoeff[j]; 
+			}
+		}
+		
+		//Almacenaremos y devolveremos en resPoly el objeto Polynomial resultado de la resta
+		resPoly.setCoeff(resCoeff);
+		resPoly.setDegree(resCoeff.length - 1);
+
+		return resPoly;
 	}
 }
