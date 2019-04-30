@@ -25,7 +25,7 @@ public class App
     public static void main( String[] args )
     {
 //        Polynomial poly = new Polynomial();
-        int[] coeff;
+//        int[] coeff;
 //        System.out.println("Polinomio creado por constructor por defecto: ");
 //        System.out.println(" -> Grado: " + poly.getDegree());
 //        System.out.print(" -> Coeficientes: ");
@@ -92,24 +92,7 @@ public class App
 //        System.out.println();
 //        System.out.println();
         
-        Polynomial poly11 = new Polynomial();
-        int[] newCoeff11 = {-1, 2, 4, -3, 0};
-        poly11.setCoeff(newCoeff11);
-        poly11.setDegree(newCoeff11.length - 1);
-        Polynomial poly9 = new Polynomial();
-        int[] newCoeff9 = {4, 0, -1, -3, 8};
-        poly9.setCoeff(newCoeff9);
-        poly9.setDegree(newCoeff9.length - 1);
-        Polynomial poly10 = poly9.add(poly11);
-        System.out.println("Polinomio suma: ");
-        System.out.println(" -> Grado: " + poly10.getDegree());
-        System.out.print(" -> Coeficientes: ");
-        coeff = poly10.getCoeff();
-        for(int i = 0; i < coeff.length; i++) {
-        	System.out.print(coeff[i] + " ");
-        }
-        System.out.println();
-        System.out.println();
+        
 ////        
 //        Polynomial poly6 = new Polynomial();
 //        int[] newCoeff6 = {-1, 2, 4, -3, 0};
@@ -129,5 +112,26 @@ public class App
 //        }
 //        System.out.println();
 //        System.out.println();
+        
+        Polynomial poly1 = new Polynomial();
+        int[] coeff1 = {-1, 2, 4, -3, 0};
+        poly1.setCoeff(coeff1);
+        poly1.setDegree(coeff1.length - 1);
+        
+        Polynomial poly2 = new Polynomial();
+        int[] coeff2 = {4, 0, -1, -3};
+        poly2.setCoeff(coeff2);
+        poly2.setDegree(coeff2.length - 1);
+        
+        Polynomial polyRes1 = poly1.add(poly2);
+        System.out.println("Polinomio suma(poly1 + poly2): ");
+        System.out.println(" -> Grado: " + polyRes1.getDegree());
+        System.out.print(" -> Coeficientes: ");
+        int[] coeffRes1 = polyRes1.getCoeff();
+        for(int i = 0; i < coeffRes1.length; i++) {
+        	System.out.print(coeffRes1[i] + " ");
+        }
+        System.out.println();
+        System.out.println();
     }
 }
