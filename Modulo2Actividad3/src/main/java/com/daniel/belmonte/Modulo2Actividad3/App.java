@@ -154,40 +154,47 @@ public class App
 //      System.out.println();
 //      System.out.println();
     	
+//    	Polynomial poly1 = new Polynomial();
+//    	int[] coeff1 = {1, 0, -2, 4};
+//    	poly1.setCoeff(coeff1);
+//    	poly1.setDegree(coeff1.length - 1);
+//    	
+//    	Polynomial poly2 = new Polynomial(poly1);
+//    	
+//    	Polynomial poly3 = new Polynomial();
+//    	int[] coeff3 = {1, 0, -2, 4};
+//    	poly3.setCoeff(coeff3);
+//    	poly3.setDegree(coeff3.length - 1);
+//    	
+//    	Polynomial poly4 = new Polynomial(poly1);
+//    	poly4.setDegree(8);
+//    	
+//    	if(poly1.equals(poly2)) {
+//    		System.out.println("poly1 y poly2 son IGUALES");
+//    	}
+//    	else {
+//    		System.out.println("poly1 y poly2 son DISTINTOS");
+//    	}
+//    	
+//    	if(poly1.equals(poly3)) {
+//    		System.out.println("poly1 y poly3 son IGUALES");
+//    	}
+//    	else {
+//    		System.out.println("poly1 y poly3 son DISTINTOS");
+//    	}
+//    	
+//    	if(poly1.equals(poly4)) {
+//    		System.out.println("poly1 y poly4 son IGUALES");
+//    	}
+//    	else {
+//    		System.out.println("poly1 y poly4 son DISTINTOS");
+//    	}
+    	
     	Polynomial poly1 = new Polynomial();
-    	int[] coeff1 = {1, 0, -2, 4};
+    	int[] coeff1 = {1, 0, -2, 4};	//x^3-2x+4
     	poly1.setCoeff(coeff1);
     	poly1.setDegree(coeff1.length - 1);
     	
-    	Polynomial poly2 = new Polynomial(poly1);
-    	
-    	Polynomial poly3 = new Polynomial();
-    	int[] coeff3 = {1, 0, -2, 4};
-    	poly3.setCoeff(coeff3);
-    	poly3.setDegree(coeff3.length - 1);
-    	
-    	Polynomial poly4 = new Polynomial(poly1);
-    	poly4.setDegree(8);
-    	
-    	if(poly1.equals(poly2)) {
-    		System.out.println("poly1 y poly2 son IGUALES");
-    	}
-    	else {
-    		System.out.println("poly1 y poly2 son DISTINTOS");
-    	}
-    	
-    	if(poly1.equals(poly3)) {
-    		System.out.println("poly1 y poly3 son IGUALES");
-    	}
-    	else {
-    		System.out.println("poly1 y poly3 son DISTINTOS");
-    	}
-    	
-    	if(poly1.equals(poly4)) {
-    		System.out.println("poly1 y poly4 son IGUALES");
-    	}
-    	else {
-    		System.out.println("poly1 y poly4 son DISTINTOS");
-    	}
+    	System.out.println("poly1: " + poly1.toString());
     }
 }

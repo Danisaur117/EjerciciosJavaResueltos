@@ -223,4 +223,43 @@ public class Polynomial {
 			return true;
 		}
 	}
+	
+	public String toString() {
+//		if (grado ==  0) return "" + coeficientes[0];
+//	    if (grado ==  1) return coeficientes[1] + "x + " + coeficientes[0];
+//	    String s = coeficientes[grado] + "x^" + grado;
+//	    for (int i = grado-1; i >= 0; i--) {
+//	      if (coeficientes[i] == 0) continue;
+//	      else if (coeficientes[i]  > 0) s = s + " + " + ( coeficientes[i]);
+//	      else if (coeficientes[i]  < 0) s = s + " - " + (-coeficientes[i]);
+//	      if (i == 1) s = s + "x";
+//	      else if (i >  1) s = s + "x^" + i;
+//	    }
+//	    return s;
+		
+		if(this.degree == 0) return "";
+		
+		String resStr = "";
+		
+		for(int i = 0; i <= this.degree; i++) {
+			if(this.coeff[i] == 0) {
+				continue;
+			}
+			else if(this.coeff[i] > 0){
+				resStr += "+" + this.coeff[i];
+			}
+			else if(this.coeff[i] < 0) {
+				resStr += this.coeff[i];
+				
+				if(i == 1) {
+					resStr += "x";
+				}
+				else if(i > 1) {
+					resStr += "x^" + i;
+				}
+			}
+		}
+		
+		return resStr;
+	}
 }
